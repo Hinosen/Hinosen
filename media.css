@@ -1,0 +1,35 @@
+body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;}
+  div.person__info{
+    justify-content: left;
+    width: 100px;
+  }
+  div.avatar{
+    left: 40px;
+  }
+  div.contacts{
+    clear: both;
+    position: relative;
+  }
+  div.person__details{
+    clear: both;
+    float: none;
+    width: 100%;
+  }
+  
+  @media all and (max-width: 768px)
+    body{
+      display: inline;
+    }
+  div.avatar{
+    size: 30px;
+    }
+  div.contacts{
+  position: relative;
+  }
+  div.person__details{
+    padding-left: 32px;
+    padding-right: 32px;
+  }

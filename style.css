@@ -1,0 +1,122 @@
+:root{
+	--main-Color: #f1fd43;
+	--link-color: #ff1100;
+	--border-color: #6424fa;
+	--text-color: #b0ffff;
+	--button-color: linear-gradient(238.72deg, #EBFF00 0%, #7700D5 100%), linear-gradient(64.82deg, #AD00FF 0%, #FF0000 100%), linear-gradient(65.03deg, #00FFFF 0%, #FF0000 99.79%), radial-gradient(67.08% 100% at 50% 0%, #FF00C7 0%, #1400FF 100%), radial-gradient(100% 140% at 100% 0%, #5ED500 0%, #2200AA 100%);
+  }
+  body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: linear-gradient(180deg, #1400FF 0%, #000000 100%), linear-gradient(154.03deg, #33FF00 0%, #FF003D 74.04%), linear-gradient(341.1deg, #F3D0FC 7.52%, #1700A4 77.98%), linear-gradient(222.34deg, #A90000 12.99%, #00FFE0 87.21%), linear-gradient(150.76deg, #B7D500 15.35%, #2200AA 89.57%);
+	background-blend-mode: overlay, difference, difference, difference, normal;
+	font-size: 16px;
+	color: var(--text-color);
+}
+
+.person__info {
+	display: flex;
+}
+.avatar {
+	position: absolute;
+	margin-left: 20rem;
+	margin-top: 3rem;
+}
+.front, .back {
+	width: 20rem;
+	height: 20rem;
+	border-color: var(--border-color);
+	border-style: double;
+	border-width: 0.5rem;
+	border-radius: 4rem;
+	backface-visibility: hidden;
+	position: absolute;
+	transition: transform 2s linear;
+  }
+.front {
+	background-image: url(./avatar.jpg);
+	background-size: contain;
+	transform: perspective(38rem) rotateY(0deg);
+}
+.back {
+	background-image: url(./code.gif);
+	transform: perspective(38rem) rotateY(180deg);
+}
+.avatar:hover > .front{transform: perspective(38rem) rotateY(-180deg);
+}
+.avatar:hover > .back{
+  transform: perspective(38rem) rotateY(0deg);
+}
+.contacts {
+    margin-left: 4rem;
+	font-size: 18px;
+	padding-top: 6rem;
+	padding-left: 45rem;
+	padding-bottom: 9rem;
+}
+.contacts__name {
+	font-size: 32px;
+	font-weight: 600;
+}
+.contacts__role {
+	position: relative;
+	font-size: 19.2px;
+	font-weight: 600;
+}
+.contacts__link {
+	top: 2rem;
+}
+.contacts__title{
+	font-style: italic;
+	font-weight: 600;
+}
+.contacts__item {
+	position: relative;
+	top: 2rem;
+}
+.contacts__link {
+background: linear-gradient(
+to bottom, var(--main-Color) 0%,
+var(--main-Color) 100%);
+background-position: 0 100%;
+background-repeat: repeat-x;
+background-size: 0.25rem 0.1rem;
+color: var(--link-color);
+transition: background-size .2s;
+}
+.contacts__link:hover {
+  background-size: 0.25rem 3rem;
+ }
+.person__details {
+	font-weight: 600;
+	padding-left: 20rem;
+	padding-right: 20rem;
+	text-indent: 4rem;
+}
+.paragraph {
+	font-weight: 500;
+	padding-top: 1rem;
+	text-indent: 1.5rem;
+}
+.paragraph_last {
+	font-weight: 500;
+	position:relative;
+	text-indent: 1.5rem;
+	padding-bottom: 3rem;
+}
+.showcode {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 3rem;
+	margin-right: 10rem;
+} 
+#showcode__button {
+	border: 0.25rem outset var(--border-color);
+	background-color: var(--button-color);
+	color: var(--text-color);
+
+}
+
+#showcode__button:hover{
+	background-color: var(--text-color);
+	color: var(--border-color);
+}
