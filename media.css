@@ -1,35 +1,44 @@
 body{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;}
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
   div.person__info{
-    justify-content: left;
-    width: 100px;
+    justify-content: center;
   }
   div.avatar{
-    left: 40px;
+    position: unset;
+    margin-left: 1rem;
+    margin-top: 5rem;
   }
   div.contacts{
-    clear: both;
-    position: relative;
+    margin-top: 20rem;
   }
-  div.person__details{
-    clear: both;
-    float: none;
-    width: 100%;
+  div.contacts__name{
+    margin-top: -5rem;
   }
-  
   @media all and (max-width: 768px)
-    body{
-      display: inline;
+   body{
     }
+  div.person__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
   div.avatar{
-    size: 30px;
+    margin: 5rem 0 0rem 2rem;
     }
+  div.contacts__role{
+    position: unset;
+    margin-top: 22rem;
+  }
   div.contacts{
-  position: relative;
+    margin: 0.25rem;
+    padding: 0rem;
   }
   div.person__details{
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 0rem;
+    margin: 2rem 0 0 0.25rem;
   }
