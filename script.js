@@ -1,11 +1,66 @@
+var canvas = document.querySelector('canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var ut, st = Date.now();
 
-document.getElementById('showcode__button').onclick = function (newDeveloper) {
-    e = newDeveloper || Event;
-    target = e.target || Event.srcElement;
-    myName = 'Литвяков Александр';
-    mySkills = 'Изучаю JavaScript, HTML, CSS, Git, Figma'
-    myText = 'По знаку зодиака - Козерог, и это оправдывает моё упорство в достижении цели. Обожаю IT сферу и всё что с ней связано, постоянно развиваюсь. Знаю чем отличается HTTP от HTML, JavaScript от Java, display: flex от display: grid, откуда pull и зачем его туда push. Прошёл курсы повышения квалификации "Веб-дизайн и Веб-разработка"(имеется удостоверение государственного образца). Учавствую в различных онлайн лекциях, придумываю свои небольшие проекты для души. Обожаю свою жену и дочку))) По характеру спокойный и дружелюбный, не Каспер конечно, но конфликтов стараюсь избегать. Усидчивый, не просто так же наиграл более 2000 тысяч часов в Доту и фифа))), конечно зря потраченное время но что поделать _0_. Не люблю частую смену работадателей, привязываюсь к своей работе, трудностей не избегаю, а стараюсь решать. В ближайших целях - работа в проектах по разработке веб приложений и параллельно изучение JavaScript до идеала.'
-    if ((target.id == 'showcode__button')){
-        alert(myName + '. ' + mySkills + '. ' + myText);
+    function initShaders (gl, vertexShaderId, fragmentShaderId) {
+        var vertexEl = document.querySelector(vertexShaderId);
+        var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+        gl.shaderSource(vertexShader, vertexEl.text);
+        gl.compileShader(vertexShader);
+
+        if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS) ) {
+            debugger
+        }
+
+        var fragmentEl = document.querySelector(fragmentShaderId);
+        var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+        gl.shaderSource(fragmentShader, fragmentEl.text);
+        gl.compileShader(fragmentShader);
+
+        if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
+            debugger
+        }
+
+        var program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        return program;
     }
-} 
+
+    function initGraphics () {
+        gl = canvas.getContext('webgl');
+        var width = canvas.width;
+        var height = canvas.height;
+        gl.viewport(0, 0, width, height);
+
+        var program = initShaders(gl, '#sv', '#sf');
+        var buffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+
+        gl.bufferData(
+                gl.ARRAY_BUFFER,
+                new Float32Array([-1, 1, -1, -1, 1, -1, 1, 1]),
+                gl.STATIC_DRAW
+        );
+
+        var vPosition = gl.getAttribLocation(program, 'vPosition');
+        gl.vertexAttribPointer(vPosition, 2, gl.FLOAT, false, 0, 0);
+        gl.enableVertexAttribArray(vPosition);
+
+        ut = gl.getUniformLocation(program, 'time');
+        var resolution = new Float32Array([canvas.width, canvas.height]);
+        gl.uniform2fv(gl.getUniformLocation(program, 'resolution'), resolution);
+    }
+
+    function render () {
+        gl.uniform1f(ut, (Date.now() - st) / 1000);
+        gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
+        requestAnimationFrame(render);
+    }
+
+    initGraphics();
+    render();

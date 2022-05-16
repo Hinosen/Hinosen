@@ -18,8 +18,8 @@
 }
 .avatar {
 	position: absolute;
-	margin-left: 20rem;
-	margin-top: 3rem;
+	left: 10%;
+	top: 5%;
 }
 .front, .back {
 	width: 20rem;
@@ -31,7 +31,7 @@
 	backface-visibility: hidden;
 	position: absolute;
 	transition: transform 2s linear;
-  }
+}
 .front {
 	background-image: url(./avatar.jpg);
 	background-size: contain;
@@ -120,3 +120,11 @@ transition: background-size .2s;
 	background-color: var(--text-color);
 	color: var(--border-color);
 }
+
+canvas {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 20%;
+	height: 100%;
+	}

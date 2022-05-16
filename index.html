@@ -15,7 +15,7 @@
 			</div>
 			<div class="contacts">
 				<div class="contacts__name">Александр Литвяков</div>
-				<div class="contacts__role">front-end инженер(Junior)</div>
+				<div class="contacts__role">front-end инженер</div>
 				    <ul class="contacts__item">
 				        <span class="contacts__title">Почта:</span>
 				        <a class="contacts__link" href="mailto: alexander39.79@gmail.com">alexander39.79@gmail.com</a>
@@ -31,36 +31,38 @@
 				</div>
 			</div>
 			<div class="person__details">I - Frontend developer!
-				<p class="paragraph">
-					function makeDeveloper(text = 'Изучаю JavaScript, HTML, CSS, Git, Figma'){
-				</p>
-				<p class="paragraph">
-					let developerName = "Литвяков Александр";
-				</p>
-				<p class="paragraph">
-					alert(developerName + '. ' + text + '. ' + 'По знаку зодиака - Козерог, и это оправдывает моё упорство в достижении цели.
-					Обожаю IT сферу и всё что с ней связано, постоянно развиваюсь. Знаю чем отличается HTTP от HTML, JavaScript от Java, display: flex от display: grid, 
-					откуда pull и зачем его туда push.
-					Прошёл курсы повышения квалификации "Веб-дизайн и Веб-разработка"(имеется удостоверение государственного образца).
-					Учавствую в различных онлайн лекциях, придумываю свои небольшие проекты для души.
-					Обожаю свою жену и дочку))) 
-					По характеру спокойный и дружелюбный, не Каспер конечно, но конфликтов стараюсь избегать.
-					Усидчивый, не просто так же наиграл более 2000 тысяч часов в Доту и Fifa))), конечно зря потраченное время но что поделать _0_.
-					Не люблю частую смену работадателей, привязываюсь к своей работе, трудностей не избегаю, а стараюсь решать.
-					В ближайших целях - работа в проектах по разработке веб приложений и параллельно изучение JavaScript до идеала.
-					')
-				</p>
-				<p class="paragraph">
-					return (makeDeveloper)} 
-				</p>
-				<p class="paragraph paragraph_last	">
-					makeDeveloper()
-				</p>
+				С детства с ПК на ты. Целеустремлённый и ответственный сотрудник. Легко и быстро обучаюсь. Дружу с логикой. Обожаю эксперименты. Сопровождаю несколько сайтов. Ещё несколько в данный момент в разработке. Проходил обучение в корпоративной школе Сбера, где участвовал в разработке сайтов(учебные проекты) и приложений(участвую по сей день) от Сбера.
+				Увлекаюсь футболом и электротехникой.
+				P.S. Поверьте мне на слово, я вам очень нужен! )))
 				<div class="showcode">
 					<button id="showcode__button" type="button" title="Прочти меня" >Это рабочий код того, что написано выше</button>
 				</div>
 			</div>
 		</div>
+		<canvas></canvas>
+<script id="sv" type="x-shader/x-vertex">
+        attribute vec4 vPosition;
+        void main (void) {
+            gl_Position = vPosition;
+        }
+    </script>
+
+<script id="sf" type="x-shader/x-fragment">
+        precision mediump float;
+
+        uniform float time;
+        uniform vec2 resolution;
+
+        void main(void) {
+            vec2 q = gl_FragCoord.xy / resolution.xy;
+            vec2 p = -1.0 + 2.0 * q;
+            p.x *= resolution.x / resolution.y;
+
+            float v = p.x + cos(time + p.y);
+            vec3 col = vec3(0.1 * max(0.0, p.y), 0.1 * max(0.0, p.x), 0.2 * max(0.0, p.x)) / abs(v * 2.0);
+            gl_FragColor = vec4(col, 0);
+        }
+</script>
 		<script src="./script.js"></script>
 	</body>
 </html>
