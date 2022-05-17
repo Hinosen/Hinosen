@@ -1,23 +1,81 @@
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-  }
-  div.person__info{
-    justify-content: center;
-  }
-  div.avatar{
-    position: unset;
-    margin-left: 1rem;
-    margin-top: 5rem;
-  }
-  div.contacts{
-    margin-top: 20rem;
-  }
-  div.contacts__name{
-    margin-top: -5rem;
-  }
+.person__info {
+  display: flex;
+}
+.avatar {
+  position: absolute;
+  left: 1%;
+  top: 2%;
+  height: 50%;
+  width: 50%;
+
+}
+.front,
+.back {
+  width: 20rem;
+  height: 20rem;
+  border-color: var(--border-color);
+  border-style: double;
+  border-width: 0.5rem;
+  border-radius: 4rem;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform 2s linear;
+}
+.front {
+  background-image: url(./avatar.jpg);
+  background-size: contain;
+  transform: perspective(38rem) rotateY(0deg);
+}
+.back {
+  background-image: url(./code.gif);
+  transform: perspective(38rem) rotateY(180deg);
+}
+.avatar:hover > .front {
+  transform: perspective(38rem) rotateY(-180deg);
+}
+.avatar:hover > .back {
+  transform: perspective(38rem) rotateY(0deg);
+}
+.contact__name {
+  margin: 10% 0 0 40%;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.contact__role {
+  margin-left: 40%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.contacts__title {
+  margin-left: 40%;
+  font-style: italic;
+  font-weight: 600;
+}
+.contacts__item {
+  margin-top: ;
+  position: relative;
+  top: 2rem;
+}
+.contacts__link {
+  background: linear-gradient(
+    to right,
+    var(--main-Color) 0%,
+    var(--main-Color) 100%
+  );
+  background-position: 0 100%;
+  background-repeat: repeat-y;
+  background-size: 0.1rem 0;
+  color: var(--link-color);
+  transition: background-size;
+}
+.contacts__link:hover {
+  background-size: 100% 1rem;
+}
+.person__details_title{
+  padding-left: 50%;
+  margin-top: 15%;
+}
+  
   @media all and (max-width: 768px)
    body{
     }
