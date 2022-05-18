@@ -23,14 +23,12 @@ body {
 
 .person__info {
   display: flex;
+  margin-left: calc(10% - 2em);
 }
 .avatar {
-  position: absolute;
-  left: 10%;
-  top: 5%;
+  margin-top: 5%;
 }
-.front,
-.back {
+.front,.back {
   width: 20rem;
   height: 20rem;
   border-color: var(--border-color);
@@ -57,12 +55,13 @@ body {
   transform: perspective(38rem) rotateY(0deg);
 }
 .contacts {
+  margin-left: calc(30% - 2rem);
   font-size: 18px;
   padding-top: 6rem;
-  padding-left: 35%;
   padding-bottom: 9rem;
 }
 .contact__name {
+  width: max-content;
   font-size: 2.5rem;
   font-weight: 600;
 }
@@ -104,9 +103,10 @@ body {
   margin-top: 1rem;
   font-size: 1.25rem;
   font-weight: 600;
-  padding-left: 10%;
-  padding-right: 20%;
+  margin-left: calc(10% - 2em);
+  padding-right: 10%;
   text-indent: 4rem;
+  text-align: justify;
 }
 #fireworks {
   display: none;
