@@ -33,3 +33,13 @@
     margin-bottom: 2rem;
   }
 }
+@media all and (max-width: 500px){
+  #fireworks {
+    display: none;
+    height: 100rem;
+    width: 100vh;
+    position:absolute;
+    top: 0;
+    left: 0;
+  }
+}
