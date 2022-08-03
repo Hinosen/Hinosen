@@ -17,8 +17,9 @@ body {
     linear-gradient(222.34deg, #a90000 12.99%, #00ffe0 87.21%),
     linear-gradient(150.76deg, #b7d500 15.35%, #2200aa 89.57%);
   background-blend-mode: overlay, difference, difference, difference, normal;
-  font-size: 16px;
+  font-size: 1.25rem;
   color: var(--text-color);
+  font-weight: 600;
 }
 
 .person__info {
@@ -63,16 +64,13 @@ body {
 .contact__name {
   width: max-content;
   font-size: 2.5rem;
-  font-weight: 600;
 }
 .contact__role {
   position: relative;
   font-size: 1.5rem;
-  font-weight: 600;
 }
 .contacts__title {
   font-style: italic;
-  font-weight: 600;
 }
 .contacts__item {
   position: relative;
@@ -94,15 +92,11 @@ body {
   background-size: 100% 1rem;
 }
 .person__details_title{
-  font-size: 1.25rem;
-  font-weight: 600;
   padding-left: 40%;
   margin-top: -3%;
 }
 .person__details {
-  margin-top: 1rem;
-  font-size: 1.25rem;
-  font-weight: 600;
+  margin-top: 2rem;
   margin-left: calc(10% - 2em);
   padding-right: 10%;
   text-indent: 4rem;
